@@ -1,6 +1,21 @@
 # Tiny CSV
 
-Tiny CSV is a lightweight, single-file Java library that provides robust CSV parsing and formatting capabilities. It is designed to be simple, efficient, and fully compliant with RFC 4180 standards for Java 17+.
+Tiny CSV is a lightweight, single-file Java library that provides robust CSV parsing and formatting
+capabilities. It is designed to be simple, efficient, and fully compliant with RFC 4180 standards
+for Java 17+.
+
+## Setup
+
+Add the following dependency to your Maven `pom.xml`:
+
+```xml
+
+<dependency>
+  <groupId>am.ik.csv</groupId>
+  <artifactId>tiny-csv</artifactId>
+  <version>0.1.0</version>
+</dependency>
+```
 
 ## Quick Start
 
@@ -40,9 +55,9 @@ String csvLine = csv.joinLine("John", "30", "Tokyo, Japan");
 ```java
 // Custom delimiter and line ending
 Csv csv = Csv.builder()
-    .delimiter(";")
-    .lineEnding("\n")
-    .build();
+        .delimiter(";")
+        .lineEnding("\n")
+        .build();
 
 String data = "name;age\nJohn;30";
 List<List<String>> records = csv.split(data);
@@ -91,10 +106,10 @@ This library fully implements RFC 4180 specifications:
 ```java
 // Data with commas, quotes, and line breaks
 List<List<String>> data = List.of(
-    List.of("name", "description"),
-    List.of("John", "A person, who said \"Hello\""),
-    List.of("Jane", "Lives in\r\nTokyo")
-);
+        List.of("name", "description"),
+        List.of("John", "A person, who said \"Hello\""),
+        List.of("Jane", "Lives in\r\nTokyo")
+    );
 
 String csv = Csv.DEFAULT.join(data);
 // Result: name,description\r\nJohn,"A person, who said ""Hello"""\r\nJane,"Lives in\r\nTokyo"
@@ -119,9 +134,9 @@ String output = csv.joinLine("John", "Age: 30; Location: Tokyo");
 ```java
 // Original data
 List<List<String>> original = List.of(
-    List.of("name", "notes"),
-    List.of("John", "Person with \"special\" characters, and commas")
-);
+        List.of("name", "notes"),
+        List.of("John", "Person with \"special\" characters, and commas")
+    );
 
 // Convert to CSV and back
 Csv csv = Csv.DEFAULT;
@@ -129,7 +144,9 @@ String csvText = csv.join(original);
 List<List<String>> parsed = csv.split(csvText);
 
 // Data integrity is preserved
-assert original.equals(parsed);
+assert original.
+
+equals(parsed);
 ```
 
 ## Building
@@ -163,4 +180,5 @@ Licensed under the Apache License, Version 2.0.
 
 ## Contributing
 
-This project follows Spring Java Format conventions. All contributions must pass the existing test suite and maintain RFC 4180 compliance.
+This project follows Spring Java Format conventions. All contributions must pass the existing test
+suite and maintain RFC 4180 compliance.
