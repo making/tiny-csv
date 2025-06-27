@@ -111,7 +111,7 @@ List<List<String>> records = csv.split(input);
 
 // Fields containing semicolons will be quoted
 String output = csv.joinLine("John", "Age: 30; Location: Tokyo");
-// Result: John,"Age: 30; Location: Tokyo"
+// Result: John;"Age: 30; Location: Tokyo"
 ```
 
 ### Round-trip Processing
